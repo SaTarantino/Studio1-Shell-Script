@@ -22,8 +22,8 @@ then
 		echo "Error. This file is a directory"
 		exit 2
 	else
-		cp $1 ~/.waste
-		echo "File copied."
+		mv $1 ~/.waste
+		echo "File deleted."
 		exit 0
 	fi
 else
