@@ -1,0 +1,36 @@
+#! /bin/bash
+
+#This command list the total number of letters, numbers and non-alphanumeric characters.
+
+#Made by Salvatore Tarantino, u1860830. u1860830
+
+if [ "$1" = "-help" ] || [ "$1" = "-h" ]
+then
+	echo "This command shows the number of letters, numbers and non-alphanumeric characters that you digit in screen."
+	echo "Print ! for close the command."
+	exit 0
+fi
+
+echo "Press ! to stop."
+STRING="$@"
+
+while true
+do
+	if [ $(echo $STRING | grep -o "!" | wc -l) -gt 0 ]
+	then
+		break
+	else
+		read text
+		STRING="$text$STRING"
+	fi
+done
+
+echo "The count of the letters is: "
+echo $STRING | grep -o [a-zA-Z] | wc -l
+
+echo "The count of the numbers is: "
+echo $STRING | grep -o [0-9] | wc -l
+
+echo "The count of non-alphanumeric characters is: "
+echo $STRING | grep -o [^a-zA-Z0-9] | wc -l
+exit 0
