@@ -12,8 +12,9 @@ then
 fi
 
 echo "Press ! to stop."
+#Use the variable STRING for store the text from the user.
 STRING="$@"
-
+#Use a loop for keep the program run until the ! simble is type.
 while true
 do
 	if [ $(echo $STRING | grep -o "!" | wc -l) -gt 0 ]
@@ -24,7 +25,7 @@ do
 		STRING="$text$STRING"
 	fi
 done
-
+#In the follow 3 part the program grep from STRING the letters, numbers and non-alphanumeric characters.
 echo "The count of the letters is: "
 echo $STRING | grep -o [a-zA-Z] | wc -l
 
